@@ -1,0 +1,6 @@
+Booking ID,Appointment date,Client name,Pet name,Services,Gross sales,Estimate duration,Payment status
+#100001,2024-06-10,Jane Smith,Bella,Groom - Small,$85.00,60.00 mins,Fully paid
+#100002,2024-06-15,John Doe,Rocky,Bath - Medium,$60.00,45.00 mins,Fully paid
+#100003,2024-07-01,Susan Ray,Luna,Groom - Large,$110.00,90.00 mins,Fully paid
+#100004,2024-07-05,Mary Jo,Max,Groom - Medium,$70.00,75.00 mins,Unpaid
+#100005,2024-08-20,John Doe,Buddy,Bath - Small,$55.00,50.00 mins,Fully paid
