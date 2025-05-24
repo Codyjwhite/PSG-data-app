@@ -22,7 +22,7 @@ public class CsvParser {
             ***Reader to access CSV***
         * Create array of String denoting CSV columns
         * Sets First row as true at the start of the method
-        * Loop goes row by creating appointment objects from parsed data ignoring first row and any unpaid appointments
+        * Loop goes row by row creating appointment objects from parsed data ignoring first row and any unpaid appointments
         * Loop adds appointment objects to appointment list.
         * Upon loop completion a list of appointment objects is returned.
 

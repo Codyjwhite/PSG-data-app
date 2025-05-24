@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-243.22562.218">
+  <component name="dataSourceStorageLocal" created-in="IU-251.25410.129">
     <data-source name="psg_data" uuid="6dc14527-c663-4aac-8d0a-2259a40ad843">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" />
+      <auth-provider>no-auth</auth-provider>
       <schema-mapping />
     </data-source>
   </component>
