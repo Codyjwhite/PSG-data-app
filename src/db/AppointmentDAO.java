@@ -87,6 +87,29 @@ public class AppointmentDAO {
         return appointments;
     }
 
+    //Method to remove all record from database
+    public static boolean deleteAllAppointments() {
+        String sql = "DELETE FROM appointments";
+        try (Connection conn = DBManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
+    public static boolean testRemoveTable() {
+        String sql = "DROP TABLE appointments";
+        try (Connection conn = DBManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            int rowsDeleted = stmt.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }
