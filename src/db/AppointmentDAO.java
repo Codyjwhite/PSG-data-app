@@ -18,6 +18,8 @@ public class AppointmentDAO {
     //Formats LocalDate into a string that sqlite can store
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE;
 
+
+
     //Method used to insert an appointment object into the DB
     public static boolean insertAppointment(Appointment appt) {
         //SQL insert statement. Inserts appointment object attributes. Ignores if booking_id already exists
@@ -65,23 +67,26 @@ public class AppointmentDAO {
 
              //ResultSet to store the query result
              ResultSet rs = stmt.executeQuery()) {
-
-            // Loop that takes each returned row and creates an appointment object.
-            while (rs.next()) {
-                Appointment appt = new Appointment(
-                        rs.getString("booking_id"),
-                        LocalDate.parse(rs.getString("appointment_date")),
-                        rs.getString("client_name"),
-                        rs.getString("pet_name"),
-                        rs.getString("service_size"),
-                        rs.getDouble("gross_sales"),
-                        rs.getInt("duration_minutes"),
-                        rs.getInt("is_paid") == 1
-                );
-                //Stores object in arrayList
-                appointments.add(appt);
-            }
+             appointments = AppointmentMapper.fromResultSet(rs);
         } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return appointments;
+    }
+
+    //Method to get all appointments for a given date range
+    public static List<Appointment> getAppointmentsForDate(LocalDate startDate, LocalDate endDate) {
+        List<Appointment> appointments = new ArrayList<>();
+        String sql = "SELECT * FROM appointments WHERE appointment_date BETWEEN ? AND ?";
+        try (Connection conn = DBManager.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, startDate.format(DATE_FORMATTER));
+            stmt.setString(2, endDate.format(DATE_FORMATTER));
+
+            ResultSet rs = stmt.executeQuery();
+            appointments = AppointmentMapper.fromResultSet(rs);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return appointments;
@@ -100,6 +105,7 @@ public class AppointmentDAO {
         }
     }
 
+    //Method to remove table from database
     public static boolean testRemoveTable() {
         String sql = "DROP TABLE appointments";
         try (Connection conn = DBManager.getConnection();
