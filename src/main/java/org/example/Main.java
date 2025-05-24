@@ -1,6 +1,7 @@
 package org.example;
 
 import model.Appointment;
+import service.CsvImporter;
 import service.CsvParser;
 import db.DBManager;
 import db.AppointmentDAO;
@@ -27,8 +28,7 @@ public class Main {
                 60,
                 true
         );
-        boolean inserted = AppointmentDAO.insertAppointment(testAppt);
-        System.out.println("Insert successful? " + inserted);
+        CsvImporter.importAppointment("data/mock_appointments.csv");
 
         List<Appointment> allAppointments = AppointmentDAO.getAllAppointments();
         System.out.println("All Appointments in DB:");
