@@ -1,6 +1,7 @@
 package db;
 
 import model.Appointment;
+import org.sqlite.core.DB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -74,8 +75,24 @@ public class AppointmentDAO {
         return appointments;
     }
 
+    public static List<Appointment> getAppointmentsByClientName(String clientName) {
+        List<Appointment> appointments = new ArrayList<>();
+
+        String sql = "SELECT * FROM appointments WHERE client_name = ?";
+
+        try (Connection conn = DBManager.getConnection();
+
+             PreparedStatement stmt = conn.prepareStatement(sql);
+
+             ResultSet rs = stmt.executeQuery()) {
+            appointments = AppointmentMapper.fromResultSet(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointments;
+    }
     //Method to get all appointments for a given date range
-    public static List<Appointment> getAppointmentsForDate(LocalDate startDate, LocalDate endDate) {
+    public static List<Appointment> getAppointmentsForDateRange(LocalDate startDate, LocalDate endDate) {
         List<Appointment> appointments = new ArrayList<>();
         String sql = "SELECT * FROM appointments WHERE appointment_date BETWEEN ? AND ?";
         try (Connection conn = DBManager.getConnection();
@@ -83,6 +100,40 @@ public class AppointmentDAO {
 
             stmt.setString(1, startDate.format(DATE_FORMATTER));
             stmt.setString(2, endDate.format(DATE_FORMATTER));
+
+            ResultSet rs = stmt.executeQuery();
+            appointments = AppointmentMapper.fromResultSet(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointments;
+    }
+
+    public static List<Appointment> getAppointmentsByAppointmentSize(int size) {
+        List<Appointment> appointments = new ArrayList<>();
+        String sql = "SELECT * FROM appointments WHERE appointmentSize = ?";
+        try (Connection conn = DBManager.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, size);
+
+        ResultSet rs = stmt.executeQuery();
+        appointments = AppointmentMapper.fromResultSet(rs);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return appointments;
+    }
+
+    public static List<Appointment> getAppointmentsByAppointmentType(String type) {
+        List<Appointment> appointments = new ArrayList<>();
+        String sql = "SELECT * FROM appointments WHERE appointmentType = ?";
+
+        try(Connection conn = DBManager.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, type);
 
             ResultSet rs = stmt.executeQuery();
             appointments = AppointmentMapper.fromResultSet(rs);

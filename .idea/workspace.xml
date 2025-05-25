@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b7f501e-3988-4b4f-8248-4fe9d2a35b76" name="Changes" comment="Created DataAnalyzer.java class&#10;Refactored Appointment.java to add new Metrics (appointmentSize &amp; appoinmentType)">
-      <change afterPath="$PROJECT_DIR$/src/db/AppointmentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db/AppointmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/AppointmentDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +47,7 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2wjARoXssB2a1QG30MsAB8ZhgfX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
