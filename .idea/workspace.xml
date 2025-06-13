@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b7f501e-3988-4b4f-8248-4fe9d2a35b76" name="Changes" comment="Created DataAnalyzer.java class&#10;Refactored Appointment.java to add new Metrics (appointmentSize &amp; appoinmentType)">
-      <change beforePath="$PROJECT_DIR$/src/db/AppointmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/AppointmentDAO.java" afterDir="false" />
-    </list>
+    <list default="true" id="8b7f501e-3988-4b4f-8248-4fe9d2a35b76" name="Changes" comment="Added a few more DAO methods" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -164,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748113018125</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a few more DAO methods">
+      <option name="closed" value="true" />
+      <created>1748150003440</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748150003440</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added a few more DAO methods">
+      <option name="closed" value="true" />
+      <created>1748150015304</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1748150015304</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +200,7 @@
     <MESSAGE value="Added File structure&#10;Created Appointment.java class&#10;Created CsvParser.java class to parse data from Moego csv&#10;Created and added simple test data to Data folder" />
     <MESSAGE value="Created DBManger class to init and connect to Database&#10;Created AppartmentDAO class to handle DB interaction&#10;-Added insert methods&#10;-Add a get all method" />
     <MESSAGE value="Created DataAnalyzer.java class&#10;Refactored Appointment.java to add new Metrics (appointmentSize &amp; appoinmentType)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created DataAnalyzer.java class&#10;Refactored Appointment.java to add new Metrics (appointmentSize &amp; appoinmentType)" />
+    <MESSAGE value="Added a few more DAO methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a few more DAO methods" />
   </component>
 </project>
